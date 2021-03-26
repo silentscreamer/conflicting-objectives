@@ -12,9 +12,7 @@ import java.util.stream.Collectors;
 public class StarterMain {
 
 	public static void main(String[] args) throws IOException {
-		String s = "rat";
-		String l ="art";
-		boolean b = isAmalgam(s,l);
+		
 		File file = new FetchFile().getFile();
 		Set<String> words = new ReadFile().getWordsInFile(file);
 		List<String> wordsWithLengthSix = new ReadFile().getWordsWithLengthSix(words);
@@ -23,28 +21,6 @@ public class StarterMain {
 				.collect(Collectors.toSet());
 		secondSolution(wordsWithLengthLessThanSix, wordsWithLengthSix);
 
-	}
-
-	private static boolean isAmalgam(String s, String l) {
-		// TODO Auto-generated method stub
-		char[] a = s.toCharArray();
-		char[] b = l.toCharArray();
-		boolean f = true;
-		outer:
-			for(int i = 0;i<a.length;i++) {
-				for(int j = 0;j<b.length;j++) {
-					if(a[i] == b[j]) {
-						f = true;
-						continue outer;
-					} else {
-						f = false;
-						if(b.length == j&& !f) {
-							return false;
-						}
-					}
-				}
-			}
-		return f;
 	}
 
 	public static void firstSolution(Set<String> words, List<String> wordsWithLengthSix) {
